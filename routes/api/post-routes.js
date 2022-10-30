@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
-const { Post, User } = require('../../models');
+const { Post, User, Comment } = require('../../models');
 
 // GET /api/posts
 router.get('/', (req, res) => {
@@ -46,6 +46,19 @@ router.post('/', (req, res) => {
             console.log(err);
             res.status(500).json(err);
         })
+});
+
+// PUT /api/posts/:id/upvote
+router.put('/upvote', (req, res) => {
+    // custom static method created in models/Post.js
+    if (req.session) {
+        Post.upvote({ ...req.body, user_id: req.session.user_id }, { Vote, Comment, User })
+            .then(updatedVoteData => res.json(updatedVoteData))
+            .catch(err => {
+                console.log(err);
+                res.status(500).json(err);
+            });
+    }
 });
 
 // PUT /api/posts/:id
