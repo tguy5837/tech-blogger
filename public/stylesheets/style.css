@@ -94,6 +94,12 @@ main {
   padding: 2% 4%;
 }
 
+.nav-buttons {
+  width: 300px;
+  display: flex;
+  justify-content: space-around;
+}
+
 .btn-no-style {
   background: none;
   border: none;
@@ -104,7 +110,6 @@ main {
   font-size: 100%;
   font-weight: bold;
   transition: color 0.1s;
-  margin-left: 16px;
 }
 
 .btn-no-style:hover {
@@ -134,15 +139,6 @@ main {
 .edit-link {
   display: block;
   margin: -1.5% 0 2% 0;
-}
-
-.upvote-btn {
-  background-color: #197d0f;
-  transition: background-color 0.1s;
-}
-
-.upvote-btn:hover {
-  background-color: #1f9c13;
 }
 
 .comment-form {

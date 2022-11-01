@@ -38,15 +38,16 @@ async function signupFormHandler(event) {
         password
       }),
       headers: { 'Content-Type': 'application/json' }
-    });
-
-    if (response.ok) {
-      document.location.replace('/');
-    } else {
-      alert(response.statusText);
-    }
+    })
+      .then(function () {
+        document.location.replace('/dashboard');
+      })
+      .catch(err => {
+        console.log(err);
+        response.status(500).json(err);
+      })
   }
-}
+};
 
 document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
 
