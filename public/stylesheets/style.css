@@ -11,6 +11,11 @@ html {
   color: #333;
 }
 
+.main-title {
+  font-size: 1.5rem;
+  color: #225ca3;
+}
+
 a {
   text-decoration: none;
   color: #225ca3;

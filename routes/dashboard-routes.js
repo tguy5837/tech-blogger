@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
             'id',
             'post_url',
             'title',
-            'createdAt'
+            'created_at'
         ],
         include: [
             {
@@ -31,7 +31,6 @@ router.get('/', (req, res) => {
         ]
     })
         .then(dbPostData => {
-            console.log(dbPostData);
             const posts = dbPostData.map(post => post.get({ plain: true }));
             res.render('dashboard', { posts, loggedIn: true });
         })
